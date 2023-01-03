@@ -8,6 +8,7 @@ var x2, y2, d2, speed2;
 var x3, y3, d3, speed3;
 
 var mySong, amplitude, play;
+let button
 
 function preload(){
 
@@ -17,12 +18,16 @@ mySong = loadSound( 'assets/Y2Mate.is - boerd - Silver-F7FFL4bHsEE-160k-16561807
 function setup() {
   var canvas = createCanvas(600, 600);
   canvas.parent("p5container");
-  play = false;
   
-  var button =  createButton(' Play')
-  button.center(width/3, height/3 );
+  
+ play = false;
+  
+  var button =  createButton(' Play me ')
+  button.center(CENTER);
   button.addClass('btn'); 
-
+  button.position(720, 350);
+  button.size(75,75) 
+  
   button.mousePressed(function(){
       play= true;
       mySong.play();
@@ -66,6 +71,8 @@ function setup() {
 
     //change the angleMode to degrees so it's easier, otherwise it's in radians 
   angleMode(DEGREES);
+
+  
 }
 
 function draw() {
@@ -183,10 +190,10 @@ fill('#0D1D57');
 rect(50, y3, 5, 40,); //falling left brick 3
 
 fill('#0D2064');
-rect(505, y3, 10, 150,); //falling right brick 3
+rect(505, y3, 10, 100,); //falling right brick 3
 
 fill('#0D1D57');
-rect(500, y3, 10, 150,); //falling right brick 4
+rect(500, y3, 10, 100,); //falling right brick 4
 
 
 fill('#0D2064');
@@ -308,6 +315,9 @@ rect(245, y3, 10, 75,); //falling right brick 4
 
    fill(17, 46, 156);
    rect(550, y2, 10, 120,); //fallingright brick 2
+
+   fill( '#193498');
+   ellipse(545, 430, 450, vol+ 150,); //hill 3
     
      fill( '#2344BF');
     ellipse(550, 440, 450, vol+ 150,); //hill 3
