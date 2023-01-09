@@ -6,6 +6,7 @@ var a = 0; //rotation
 var x, y , d, speed;
 var x2, y2, d2, speed2;
 var x3, y3, d3, speed3;
+var x4, y4, d3, speed4;
 
 var mySong, amplitude, play;
 let button
@@ -20,12 +21,14 @@ function setup() {
   canvas.parent("p5container");
   
   
+  
+  
  play = false;
   
   var button =  createButton(' Play me ')
   button.center(CENTER);
   button.addClass('btn'); 
-  button.position(720, 350);
+  button.position(width/2, height/2);
   button.size(75,75) 
   
   button.mousePressed(function(){
@@ -61,7 +64,7 @@ function setup() {
     speed3 = .5;
 
     x4 = width; //side scrolling circles
-    y4 = height/12; 
+    y4 = height/1; 
     d4 = 200;
     speed4 = .5;
 
@@ -161,6 +164,14 @@ if(y3 > height + d3/2){
    y3 = 0 - d3/2;
 }
 
+y4 ++ ; 1 
+y4 = y4 + speed4;
+
+if(y4 > height + d4/2){  
+
+   y4 = 0 - d4/2;
+}
+
    x4 ++ ; 1 
 x4 = x4 + speed4;
 
@@ -174,7 +185,7 @@ console.log(amplitude.getLevel())
 
 var vol= map ( level,0, 1,0, 120)
 
-var col = map (level,0, 1,0,  255)
+var col = map (level,0, 1,0,  200)
 
 
 
@@ -182,12 +193,32 @@ if(vol>10){
     
 }
 
+fill('#0D2064');
+rect(155, y4, 10, 75,); //falling right brick 5
+
+fill('#0D1D57');
+rect(150, y4, 10, 75,); //falling right brick 5
+
 
 fill('#0D2064');
 rect(55, y3, 5, 40,); //falling left brick 3
 
 fill('#0D1D57');
 rect(50, y3, 5, 40,); //falling left brick 3
+
+
+fill('#0D2064');
+rect(25, y4, 5, 40,); //falling left brick 5
+
+fill('#0D1D57');
+rect(20, y4, 5, 40,); //falling left brick 5
+
+
+fill('#0D2064');
+rect(575, y4, 5, 40,); //falling left brick 6
+
+fill('#0D1D57');
+rect(580, y4, 5, 40,); //falling left brick 6
 
 fill('#0D2064');
 rect(505, y3, 10, 100,); //falling right brick 3
@@ -309,18 +340,26 @@ rect(245, y3, 10, 75,); //falling right brick 4
 
    fill( '#18359E');
    ellipse(x3 , 167, 50 , 50,); //3|2ndbackground floaty2
+
+       
+   fill('#04103C');
+   rect(360, y2, 15, 100,); //falling right brick
+
+   fill('#05144B');
+   rect(370, y2, 15, 100,); //fallingright brick 
     
-   fill('#0E1E56');
-   rect(530, y2, 20, 120,); //falling right brick 2
-
-   fill(17, 46, 156);
-   rect(550, y2, 10, 120,); //fallingright brick 2
-
-   fill( '#193498');
+  fill( '#193498');
    ellipse(545, 430, 450, vol+ 150,); //hill 3
     
      fill( '#2344BF');
     ellipse(550, 440, 450, vol+ 150,); //hill 3
+
+    fill('#0E1E56');
+    rect(530, y2, 20, 120,); //falling right brick 2
+ 
+    fill(17, 46, 156);
+    rect(550, y2, 10, 120,); //fallingright brick 2
+
 
     fill( '#6D88ED');
    ellipse(x2 , 27, 80, 80,); //2|4thbackground floaty 
@@ -343,44 +382,49 @@ rect(245, y3, 10, 75,); //falling right brick 4
 
    fill( '#18359E');
    ellipse(x2 , 167, 50 , 50,); //2|2ndbackground floaty2
-    
-   fill('#04103C');
-   rect(360, y2, 15, 100,); //falling right brick
 
-   fill('#05144B');
-   rect(370, y2, 15, 100,); //fallingright brick 
+   fill( '#6D88ED');
+   ellipse(x , 27, 80, 80,); //4thbackground floaty 
+
+   fill( '#112E9C');
+   ellipse(x , 25, 72 , 72,); //4thbackground floaty2
+
+   fill( '#0D1F60');
+   ellipse(x , 425, 28, 28,); //3rdbackground floaty 
+
+
+   fill( '#0D1D57');
+   ellipse(x , 300, 48, 48,); //background floaty 
+
+   fill( '#0D2064');
+   ellipse(x , 302, 40 , 40,); //background floaty2
+
+   fill( '#071857');
+   ellipse(x , 170, 58, 58,); //2ndbackground floaty 
+
+   fill( '#18359E');
+   ellipse(x , 167, 50 , 50,); //2ndbackground floaty2
+
+
+
+   fill('#0E1E56');
+   rect(460, y4, 16, 100,); //falling right brick 7
+
+   fill(17, 46, 156);
+   rect(470, y4, 12, 100,); //fallingright brick 7
 
     fill( '#3E61E3');
     ellipse(460, 500, 537, 164,); //hill 2
 
+
+  fill( '#2344BF');
+  rect(250, y4, 15, 100,); //falling right brick 6
+
+  fill('#193498');
+  rect(245, y4, 15, 100,); //falling right brick 6
+  '#2344BF'
     
-    fill( '#6D88ED');
-    ellipse(x , 27, 80, 80,); //4thbackground floaty 
-
-    fill( '#112E9C');
-    ellipse(x , 25, 72 , 72,); //4thbackground floaty2
-
-    fill( '#0D1F60');
-    ellipse(x , 425, 28, 28,); //3rdbackground floaty 
-
-
-    fill( '#0D1D57');
-    ellipse(x , 300, 48, 48,); //background floaty 
-
-    fill( '#0D2064');
-    ellipse(x , 302, 40 , 40,); //background floaty2
-
-    fill( '#071857');
-    ellipse(x , 170, 58, 58,); //2ndbackground floaty 
-
-    fill( '#18359E');
-    ellipse(x , 167, 50 , 50,); //2ndbackground floaty2
-
-       
-
-
-
-    fill('#6D88ED');
+   fill('#6D88ED');
     rect(20, 470, 158, 370,); //left brick 4
 
     fill('#4D6FEE');
@@ -413,15 +457,15 @@ rect(245, y3, 10, 75,); //falling right brick 4
     rect(-75, 400, 156, 371,); //left brick 2
 
     fill( '#081338');
-    ellipse(120, yPos, 82 , 82,); //little floaty 
+    ellipse(118, yPos, 82 , 82,); //little floaty 
 
-    fill( '#0A1743');
+    fill( col, 26, 67);
     ellipse(115, yPos, 73 , 74,); //little floaty 2
 
     fill( '#081338');
     ellipse(350, yPos2, 323 , 316,); // big floaty
 
-    fill( '#0A1743');
+    fill( col, 26, 67);
     ellipse(360, yPos2, 287 , 287,); //2nd big floaty
 
   fill( '#071857');
@@ -429,12 +473,6 @@ rect(245, y3, 10, 75,); //falling right brick 4
 
     fill( '#071650');
     ellipse(300, 570, 537, vol + 140,); //hill foreground
-
-    // fill( '#0A1743');
-    // ellipse(120, 555, 73 , 105,); //baby shadow
-
-    // fill( '#05144B');
-    // ellipse(320, 678, 301 , 398,); //big shadow
 
     fill('#071857');
     rect(530, 375, 198, 382,); //right 2ndborderbricks
